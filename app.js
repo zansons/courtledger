@@ -14,7 +14,7 @@ function fill(sel,vals){$(sel).innerHTML+=vals.map(v=>`<option>${v}</option>`).j
 if(P==='index'){
  let view='per100',sort={k:'np',d:-1};fill('#team',[...new Set(D.rows.map(r=>r.team))].sort());fill('#pos',[...new Set(D.rows.map(r=>r.pos).filter(Boolean))].sort());
  const nprov=D.games.filter(g=>g.prov).length;
- $('#provnote').innerHTML=`${D.games.length} games · <b>${nprov}</b> with ${PROV}. Until InStat single-game PPP is loaded for a game, its defense is split by minutes only, so defensive values there barely separate players.`;
+ $('#provnote').innerHTML=`${D.games.length} games · <b>${nprov}</b> with ${PROV}. Until individual defense is loaded for a game, its defense is split by minutes only, so defensive values there barely separate players.`;
  function agg(){const full=$('#fullonly').checked,m={};
   D.rows.filter(r=>!full||!r.prov).forEach(r=>{const a=m[r.pid]||(m[r.pid]={pid:r.pid,name:r.name,team:r.team,pos:r.pos,g:0,min:0,ton:0,off:0,dfn:0,np:0,pg:0});
    a.g++;a.min+=r.min;a.ton+=r.ton;a.off+=r.off;a.dfn+=r.dfn;a.np+=r.np;if(r.prov)a.pg++;a.team=r.team});
@@ -37,10 +37,10 @@ if(P==='games'){
  function draw(){const pid=$('#player').value,gc=+$('#game').value;let d,cols;
   const base=[{h:'Min',k:'min',f:r=>r.min.toFixed(1)},{h:'Pts',k:'pts'},{h:'Def PPP',k:'ppp',f:r=>r.ppp===''?'<span class="n">—</span>':(+r.ppp).toFixed(2)+` <small>(${r.pposs})</small>`},
    {h:'Off AP',k:'off',f:r=>f(r.off),cls:r=>cl(r.off)},{h:'Def AP',k:'dfn',f:r=>f(r.dfn),cls:r=>cl(r.dfn)},{h:'AP',k:'np',f:r=>`<b>${f(r.np)}</b>`,cls:r=>cl(r.np)},{h:'AP /100',k:'n100',f:r=>f(r.n100),cls:r=>cl(r.n100)},
-   {h:'Defense',k:'prov',l:1,f:r=>r.prov?PROV:'<span class="tag ok">InStat</span>'}];
+   {h:'Defense',k:'prov',l:1,f:r=>r.prov?PROV:'<span class="tag ok">Full</span>'}];
   if(gc){const g=G[gc];d=D.rows.filter(r=>r.gc===gc);
    const sums=[g.home,g.away].map(t=>`${t}: Σ AP ${f(d.filter(r=>r.team===t).reduce((a,r)=>a+r.np,0),2)}`).join(' · ');
-   $('#gamehead').innerHTML=`<h2>Round ${g.round} · ${g.date} · ${g.home} ${g.hs}–${g.as_} ${g.away} ${g.prov?PROV:'<span class="tag ok">InStat defense</span>'}</h2><p>${sums} (equals margin)</p>`+(g.prov?`<div class="note">Provisional defense: missing single-game InStat PPP for ${g.missing.join(', ')}. Defense split by minutes only.</div>`:'');
+   $('#gamehead').innerHTML=`<h2>Round ${g.round} · ${g.date} · ${g.home} ${g.hs}–${g.as_} ${g.away} ${g.prov?PROV:'<span class="tag ok">Full defense</span>'}</h2><p>${sums} (equals margin)</p>`+(g.prov?`<div class="note">Provisional defense: missing individual defense for ${g.missing.join(', ')}. Defense split by minutes only.</div>`:'');
    cols=[{h:'Player',k:'name',l:1,f:r=>`<a href="?c=${key}&p=${r.pid}">${r.name}</a>`},{h:'Team',k:'team',l:1},...base];if(sort.k==='gc')sort={k:'np',d:-1}}
   else if(pid){d=D.rows.filter(r=>r.pid===pid);$('#gamehead').innerHTML=`<h2>${ps[pid]}</h2>`;
    cols=[{h:'Rd',k:'gc',f:r=>G[r.gc].round},{h:'Date',k:'gc',l:1,f:r=>G[r.gc].date},{h:'Opp',k:'opp',l:1,f:r=>`<a href="?c=${key}&g=${r.gc}">${r.team===G[r.gc].home?'vs':'@'} ${r.opp}</a>`},...base]}
