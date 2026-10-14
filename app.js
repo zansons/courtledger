@@ -1,7 +1,9 @@
 const $=s=>document.querySelector(s),P=document.body.dataset.page;
 const key=new URLSearchParams(location.search).get('c')||localStorage.c||NPINDEX.includes(NPDEFAULT)&&NPDEFAULT||NPINDEX[0];
 const D=NPDATA[key]; document.querySelectorAll('nav a').forEach(a=>{a.classList.toggle('on',a.dataset.p===P);a.href+='?c='+key});
-$('#comp').innerHTML=Object.entries(D.comps).map(([c,n])=>{const k=NPINDEX.find(x=>x.startsWith(c+'_'));return `<option value="${k||''}" ${k?'':'disabled'} ${k===key?'selected':''}>${n}${k?' '+k.split('_')[1].replace(/^\D(\d{4})$/,(m,y)=>y+'-'+String(+y+1).slice(2)):' (soon)'}</option>`}).join('');
+const lab=k=>{const [c,s]=k.split('_'),n=D.comps[c]||c;return n+' '+s.replace(/^\D(\d{4})$/,(m,y)=>y+'-'+String(+y+1).slice(2))};
+$('#comp').innerHTML=NPINDEX.slice().sort().reverse().map(k=>`<option value="${k}" ${k===key?'selected':''}>${lab(k)}</option>`).join('')
+  +(Object.keys(D.comps).filter(c=>!NPINDEX.some(k=>k.startsWith(c+'_'))).map(c=>`<option value="" disabled>${D.comps[c]} (soon)</option>`).join(''));
 $('#comp').onchange=e=>{localStorage.c=e.target.value;location.search='?c='+e.target.value};$('#built').textContent=D.built;
 const f=(x,d=1)=>(x>0?'+':'')+x.toFixed(d),cl=x=>x>0?'p':x<0?'n':'',G=Object.fromEntries(D.games.map(g=>[g.gc,g]));
 const PROV='<span class="tag prov">provisional defense</span>';

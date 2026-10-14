@@ -1,1 +1,1 @@
-window.NPINDEX=["E_E2026"];window.NPDEFAULT='E_E2026';
+window.NPINDEX=["E_E2025", "E_E2026"];window.NPDEFAULT='E_E2026';
