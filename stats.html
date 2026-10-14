@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stats · Court Ledger</title><link rel="stylesheet" href="style.css"></head>
+<body data-page="stats">
+<header><div class="brand"><span class="mark">±</span> Court<b>Ledger</b></div>
+<nav><a href="index.html" data-p="index">Added Points</a><a href="stats.html" data-p="stats">Stats</a><a href="player.html" data-p="player">Player</a><a href="games.html" data-p="games">Game logs</a><a href="lineups.html" data-p="lineups">Lineups</a><a href="pvp.html" data-p="pvp">H2H</a><a href="trends.html" data-p="trends">Trends</a><a href="teams.html" data-p="teams">Teams</a><a href="dpm.html" data-p="dpm">DPM</a><a href="method.html" data-p="method">Method</a></nav>
+<label class="comp">Competition <select id="comp"></select></label></header>
+<main><section class="hero"><h1>Stats <small>box score, advanced, impact</small></h1><p>Cell colour = percentile among players with 60+ minutes (blue low → orange high; TOV% inverted). Click two column headers' ◎ icons, or use the X/Y pickers, to scatter any two stats.</p></section>
+<div class="controls"><label>Group <select id="grp"><option value="box">Box</option><option value="adv" selected>Advanced</option><option value="p100">Per 100</option><option value="imp">Impact</option></select></label><label>Min. minutes <input type="number" id="minmin" value="60" step="10"></label><label>Team <select id="team"><option value="">All</option></select></label><label>Search <input id="q"></label>
+<label>X <select id="sx"></select></label><label>Y <select id="sy"></select></label><button id="clr" class="btn">clear</button></div>
+<div id="scatter"></div><table id="lb" class="tbl"></table>
+</main>
+<footer>Prototype · data built <span id="built"></span> · Box score: EuroLeague live API · Defensive PPP: InStat · <span class="tag prov">provisional defense</span> = game lacks full single-game InStat PPP; defense split by minutes only.</footer>
+<script src="data/E_E2026.js"></script><script src="data/index.js"></script><script src="app.js"></script><script src="app2.js"></script></body></html>

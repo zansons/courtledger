@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lineups & WOWY · Court Ledger</title><link rel="stylesheet" href="style.css"></head>
+<body data-page="lineups">
+<header><div class="brand"><span class="mark">±</span> Court<b>Ledger</b></div>
+<nav><a href="index.html" data-p="index">Added Points</a><a href="stats.html" data-p="stats">Stats</a><a href="player.html" data-p="player">Player</a><a href="games.html" data-p="games">Game logs</a><a href="lineups.html" data-p="lineups">Lineups</a><a href="pvp.html" data-p="pvp">H2H</a><a href="trends.html" data-p="trends">Trends</a><a href="teams.html" data-p="teams">Teams</a><a href="dpm.html" data-p="dpm">DPM</a><a href="method.html" data-p="method">Method</a></nav>
+<label class="comp">Competition <select id="comp"></select></label></header>
+<main><section class="hero"><h1>Lineups &amp; WOWY</h1><p>Net rating (points per 100 possessions, for − against) from lineup stints rebuilt out of play-by-play. Small samples are noisy.</p></section>
+<div class="controls"><div class="seg" id="mode"><button data-v="onoff" class="on">On/Off</button><button data-v="combo">2–5 man</button><button data-v="wowy">With/without</button></div>
+<label>Team <select id="team"></select></label><label id="nlab">Size <select id="n"><option>2</option><option>3</option><option>4</option><option selected>5</option></select></label><label id="plab">Player <select id="p1"></select></label><label>Min. poss <input type="number" id="minp" value="30" step="10"></label></div>
+<div id="out"></div>
+</main>
+<footer>Prototype · data built <span id="built"></span> · Box score: EuroLeague live API · Defensive PPP: InStat · <span class="tag prov">provisional defense</span> = game lacks full single-game InStat PPP; defense split by minutes only.</footer>
+<script src="data/E_E2026.js"></script><script src="data/index.js"></script><script src="app.js"></script><script src="app2.js"></script></body></html>

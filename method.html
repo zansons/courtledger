@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Method · Court Ledger</title><link rel="stylesheet" href="style.css"></head>
+<body data-page="method">
+<header><div class="brand"><span class="mark">±</span> Court<b>Ledger</b></div>
+<nav><a href="index.html" data-p="index">Added Points</a><a href="stats.html" data-p="stats">Stats</a><a href="player.html" data-p="player">Player</a><a href="games.html" data-p="games">Game logs</a><a href="lineups.html" data-p="lineups">Lineups</a><a href="pvp.html" data-p="pvp">H2H</a><a href="trends.html" data-p="trends">Trends</a><a href="teams.html" data-p="teams">Teams</a><a href="dpm.html" data-p="dpm">DPM</a><a href="method.html" data-p="method">Method</a></nav>
+<label class="comp">Competition <select id="comp"></select></label></header>
+<main><article class="prose"><h1>About our numbers</h1>
+<h2>Added Points (AP)</h2>
+<p>Added Points (AP) is our Dean Oliver-inspired measure of how many points a player added to, or cost, his team's final margin in a single game. It is not plus-minus or net rating: it credits each player for what he actually produced, not just for being on the floor.</p>
+<ul>
+<li><b>Offense</b> builds on Dean Oliver's individual offensive work: how much a player creates, how efficiently, and how often he uses possessions.</li>
+<li><b>Defense</b> combines team defense with tracked individual defense, meaning the points a player actually allowed on the possessions he defended.</li>
+<li><b>It always adds up.</b> In every game, the players' Added Points sum exactly to the final score margin.</li>
+</ul>
+<p>Values are shown per game, in totals, and per 100 team possessions on court. <span class="tag prov">provisional defense</span> marks games where individual defensive data isn't loaded yet, so defense is shared by playing time only.</p>
+<h2>DPM</h2>
+<p>DPM is our forward-looking player rating: how many points per 100 possessions a player is expected to add over an average EuroLeague player in his next game. It weighs every EuroLeague game since 2007-08, with recent games counting most, and blends box-score production with lineup results.</p>
+<h2>Data</h2>
+<p>Box scores and play-by-play from the EuroLeague, and individual defense from tracking data.</p>
+</article>
+</main>
+<footer>Prototype · data built <span id="built"></span> · Box score: EuroLeague live API · Defensive PPP: InStat · <span class="tag prov">provisional defense</span> = game lacks full single-game InStat PPP; defense split by minutes only.</footer>
+<script src="data/E_E2026.js"></script><script src="data/index.js"></script><script src="app.js"></script><script src="app2.js"></script></body></html>
