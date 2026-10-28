@@ -1,13 +1,29 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Stats · Court Ledger</title><link rel="stylesheet" href="style.css"></head>
+<title>Stats · CourtLedger</title>
+<meta name="description" content="CourtLedger: EuroLeague player rankings by Added Points (AP) and DPM.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head>
 <body data-page="stats">
-<header><div class="brand"><span class="mark">±</span> Court<b>Ledger</b></div>
-<nav><a href="index.html" data-p="index">Added Points</a><a href="stats.html" data-p="stats">Stats</a><a href="player.html" data-p="player">Player</a><a href="games.html" data-p="games">Game logs</a><a href="lineups.html" data-p="lineups">Lineups</a><a href="pvp.html" data-p="pvp">H2H</a><a href="trends.html" data-p="trends">Trends</a><a href="teams.html" data-p="teams">Teams</a><a href="dpm.html" data-p="dpm">DPM</a><a href="method.html" data-p="method">Method</a></nav>
-<label class="comp">Competition <select id="comp"></select></label></header>
+<header class="top"><div class="topin">
+<a class="brand" href="index.html"><span class="mark">±</span><span>Court<b>Ledger</b></span></a>
+<nav class="main">
+ <a href="index.html" data-p="index" class="pri"><i>01</i>AP<span class="long"> Rankings</span></a>
+ <a href="dpm.html" data-p="dpm" class="pri"><i>02</i>DPM<span class="long"> Rankings</span></a>
+ <details class="more"><summary>More</summary><div class="menu">
+  <div class="grp"><b>Players</b><a href="player.html" data-p="player">Player dashboard</a><a href="stats.html" data-p="stats">Stats &amp; scatter plots</a><a href="trends.html" data-p="trends">Trends</a><a href="pvp.html" data-p="pvp">Head-to-head</a></div>
+  <div class="grp"><b>Teams &amp; games</b><a href="teams.html" data-p="teams">Teams</a><a href="games.html" data-p="games">Game logs</a><a href="lineups.html" data-p="lineups">Lineups &amp; WOWY</a></div>
+  <div class="grp"><b>About</b><a href="method.html" data-p="method">Method &amp; credits</a></div>
+ </div></details>
+</nav>
+<label class="comp">Season <select id="comp"></select></label>
+</div></header>
 <main><section class="hero"><h1>Stats <small>box score, advanced, impact</small></h1><p>Cell colour = percentile among players with 60+ minutes (blue low → orange high; TOV% inverted). Click two column headers' ◎ icons, or use the X/Y pickers, to scatter any two stats.</p></section>
 <div class="controls"><label>Group <select id="grp"><option value="box">Box</option><option value="adv" selected>Advanced</option><option value="p100">Per 100</option><option value="imp">Impact</option></select></label><label>Min. minutes <input type="number" id="minmin" value="60" step="10"></label><label>Team <select id="team"><option value="">All</option></select></label><label>Search <input id="q"></label>
 <label>X <select id="sx"></select></label><label>Y <select id="sy"></select></label><button id="clr" class="btn">clear</button></div>
 <div id="scatter"></div><table id="lb" class="tbl"></table>
 </main>
-<footer>Prototype · data built <span id="built"></span> · <span class="tag prov">provisional defense</span> = individual defense not loaded yet; defense split by minutes only.</footer>
+<footer><div><b>Added Points (AP)</b> is CourtLedger's Dean Oliver-inspired player metric. <b>DPM</b> is our EuroLeague version of <a href="https://www.darko.app/about">DARKO</a>, created by Kostya Medvedovsky (darko.app).</div>
+<div>Box scores and play-by-play: EuroLeague. Data built <span id="built"></span>. <a href="method.html">Method &amp; credits</a></div></footer>
 <script src="data/E_E2025.js"></script><script src="data/E_E2026.js"></script><script src="data/index.js"></script><script src="app.js"></script><script src="app2.js"></script></body></html>
