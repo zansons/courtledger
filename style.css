@@ -80,6 +80,13 @@ footer{max-width:1240px;margin:30px auto 0;color:var(--mut);font-size:12px;paddi
 svg text{fill:var(--mut);font-size:10px}svg .dot{opacity:.75}svg .dot:hover{opacity:1;stroke:#fff}
 th .sc{opacity:.4;margin-left:3px}th .sc.on{opacity:1;color:var(--acc)}
 .card a,.prose a{color:#ffb070}
+/* homepage: no headline, compact top */
+body[data-page=index] main{padding-top:14px}
+.rk-hero.home p{margin:6px 0 0;font-size:14px}
+.rk-hero.home .duo{margin:12px 0 0}
+body[data-page=index] .leaders{margin:12px 0}
+body[data-page=index] .board{margin-top:18px}
+@media (max-width:760px){body[data-page=index] main{padding-top:10px}.rk-hero.home p{font-size:13px}}
 @media (max-width:760px){
  main>.tbl,#out .tbl,#det .tbl,#log{display:block;overflow-x:auto}
  .topin{padding:8px 14px;gap:8px 12px}.brand{font-size:18px}.mark{width:26px;height:26px;font-size:16px}
