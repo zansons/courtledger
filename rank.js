@@ -35,7 +35,7 @@ function mkBoard(kind){
  function defaults(){const rows=kind==='ap'?R.seasons[S].ap.rows:R.seasons[S].dpm.rows;const mg=Math.max(1,...rows.map(r=>r.g));const g=Math.max(1,Math.ceil(mg*0.4));
   return {view:(st&&st.view)||'pg',sort:kind==='ap'?{k:'np',d:-1}:{k:'dpm',d:-1},team:'',pos:'',q:'',minG:g,minMin:g*10,minCp:0,full:false}}
  function controls(){const z=R.seasons[S],rows=kind==='ap'?z.ap.rows:z.dpm.rows,prov=kind==='ap'&&z.ap.prov>0;
-  el.innerHTML=`<div class="bhead"><h2>${kind==='ap'?'<i>01</i> AP (Added Points)':'<i>02</i> DPM'} <span class="sl">${z.label}</span></h2><span class="fresh" data-fresh="${kind}"></span></div>
+  el.innerHTML=`<div class="bhead"><h2>${kind==='ap'?'<i>01</i> AP (Added Points)':'<i>02</i> DPM (DARKO)'} <span class="sl">${z.label}</span></h2><span class="fresh" data-fresh="${kind}"></span></div>
   <div class="controls">
    <div class="ctl"><span>Season</span><div class="seg" id="seas">${SEAS.slice().reverse().map(s=>`<button data-s="${s}" class="${s===S?'on':''}">${R.seasons[s].label}</button>`).join('')}</div></div>
    ${kind==='ap'?`<div class="ctl"><span>Values</span><div class="seg" id="view">${Object.entries(VIEWS).map(([k,[l]])=>`<button data-v="${k}" class="${st.view===k?'on':''}">${l}</button>`).join('')}</div></div>`:''}
@@ -87,9 +87,9 @@ function leaders(){const el=$('#leaders');if(!el)return;const z=R.seasons[S];
  const dp=z.dpm.rows.filter(r=>r.g>=dq&&r.min>=dq*10).sort((a,b)=>b.dpm-a.dpm).slice(0,5);
  const li=(r,v,i)=>`<li><span class="ix">${i+1}</span><span class="nm">${esc(nm(r.name))}<small>${r.team}</small></span><span class="v ${cl(v)}">${sg(v,2)}</span></li>`;
  el.innerHTML=`<div class="lcard ap"><h3>AP (Added Points) leaders <small>per game · ${z.label} · ${gq}+ games</small></h3><ol>${ap.map((r,i)=>li(r,r.x,i)).join('')||'<li class="mut">No games yet</li>'}</ol><a class="more-link" href="#board">Full AP (Added Points) ranking ↓</a></div>
- <div class="lcard dpm"><h3>DPM leaders <small>${z.label} players · ${dq}+ games</small></h3><ol>${dp.map((r,i)=>li(r,r.dpm,i)).join('')}</ol><a class="more-link keep" href="dpm.html">Full DPM ranking →</a></div>`;setNav()}
+ <div class="lcard dpm"><h3>DPM (DARKO) leaders <small>${z.label} players · ${dq}+ games</small></h3><ol>${dp.map((r,i)=>li(r,r.dpm,i)).join('')}</ol><a class="more-link keep" href="dpm.html">Full DPM (DARKO) ranking →</a></div>`;setNav()}
 let board=null;
 if(P==='index'||P==='dpm'){document.body.classList.add('rkpage');board=mkBoard(P==='index'?'ap':'dpm');board.init();leaders()}
-if(P==='method'){const fe=$('#freshtbl');if(fe)fe.innerHTML='<tr><th class="l">Season</th><th class="l">AP (Added Points)</th><th class="l">DPM games in data</th></tr>'+SEAS.slice().reverse().map(s=>{const z=R.seasons[s];return `<tr><td class="l" style="white-space:nowrap">${z.label}</td><td class="l">${z.ap.n} games${z.ap.n?` (game ${rng(z.ap.ranges)}, to ${fmtD(z.ap.last_date)})`:''}</td><td class="l">${z.dpm.n} games${z.dpm.n?` (game ${rng(z.dpm.ranges)}, to ${fmtD(z.dpm.last_date)})`:''}</td></tr>`}).join('')}
+if(P==='method'){const fe=$('#freshtbl');if(fe)fe.innerHTML='<tr><th class="l">Season</th><th class="l">AP (Added Points)</th><th class="l">DPM (DARKO) games in data</th></tr>'+SEAS.slice().reverse().map(s=>{const z=R.seasons[s];return `<tr><td class="l" style="white-space:nowrap">${z.label}</td><td class="l">${z.ap.n} games${z.ap.n?` (game ${rng(z.ap.ranges)}, to ${fmtD(z.ap.last_date)})`:''}</td><td class="l">${z.dpm.n} games${z.dpm.n?` (game ${rng(z.dpm.ranges)}, to ${fmtD(z.dpm.last_date)})`:''}</td></tr>`}).join('')}
 setNav();fresh();
 })();

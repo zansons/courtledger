@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Method · CourtLedger</title>
-<meta name="description" content="CourtLedger: EuroLeague player rankings by AP (Added Points) and DPM.">
+<meta name="description" content="CourtLedger: EuroLeague player rankings by AP (Added Points) and DPM (DARKO).">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -10,7 +10,7 @@
 <a class="brand" href="index.html"><span class="mark">±</span><span>Court<b>Ledger</b></span></a>
 <nav class="main">
  <a href="index.html" data-p="index" class="pri"><i>01</i>AP<span class="long"> (Added Points) Rankings</span></a>
- <a href="dpm.html" data-p="dpm" class="pri"><i>02</i>DPM<span class="long"> Rankings</span></a>
+ <a href="dpm.html" data-p="dpm" class="pri"><i>02</i>DPM<span class="long"> (DARKO) Rankings</span></a>
  <details class="more"><summary>More</summary><div class="menu">
   <div class="grp"><b>Players</b><a href="player.html" data-p="player">Player dashboard</a><a href="stats.html" data-p="stats">Stats &amp; scatter plots</a><a href="trends.html" data-p="trends">Trends</a><a href="pvp.html" data-p="pvp">Head-to-head</a></div>
   <div class="grp"><b>Teams &amp; games</b><a href="teams.html" data-p="teams">Teams</a><a href="games.html" data-p="games">Game logs</a><a href="lineups.html" data-p="lineups">Lineups &amp; WOWY</a></div>
@@ -20,7 +20,7 @@
 <label class="comp">Season <select id="comp"></select></label>
 </div></header>
 <main><article class="prose"><div class="kicker">Method &amp; credits</div><h1>About our numbers</h1>
-<p>CourtLedger is built around two player rankings: <a href="index.html">AP (Added Points)</a> first and <a href="dpm.html">DPM</a> second. Everything else on the site (player dashboards, stats and scatter plots, trends, head-to-head, teams, game logs, lineups) is under <b>More</b> in the menu.</p>
+<p>CourtLedger is built around two player rankings: <a href="index.html">AP (Added Points)</a> first and <a href="dpm.html">DPM (DARKO)</a> second. Everything else on the site (player dashboards, stats and scatter plots, trends, head-to-head, teams, game logs, lineups) is under <b>More</b> in the menu.</p>
 <h2>AP (Added Points)</h2>
 <p>AP (Added Points) is our Dean Oliver-inspired measure of how many points a player added to, or cost, his team's final margin in a single game. It is not plus-minus or net rating: it credits each player for what he actually produced, not just for being on the floor.</p>
 <ul>
@@ -29,8 +29,8 @@
 <li><b>It always adds up.</b> In every game, the players' Added Points sum exactly to the final score margin.</li>
 </ul>
 <p>The AP ranking shows totals, per game, per 40 minutes, and per 100 team possessions on court. AP for a game is published once individual defensive data for that game is loaded. <span class="tag prov">provisional defense</span> marks any game where it isn't, so defense there is shared by playing time only.</p>
-<h2>DPM</h2>
-<p>DPM is our EuroLeague version of <a href="https://www.darko.app/about">DARKO</a>, the Daily Plus-Minus model created by Kostya Medvedovsky (darko.app) for the NBA. It isn't a model we invented; we apply the DARKO approach to EuroLeague data. It is a forward-looking rating: how many points per 100 possessions a player is expected to add over an average EuroLeague player in his next game. It weighs every EuroLeague game since 2007-08, with recent games counting most, and blends box-score production with lineup results. O-DPM and D-DPM split it into offense and defense.</p>
+<h2>DPM (DARKO)</h2>
+<p>DPM (DARKO) is our EuroLeague version of <a href="https://www.darko.app/about">DARKO</a>, the Daily Plus-Minus model created by Kostya Medvedovsky (darko.app) for the NBA. It isn't a model we invented; we apply the DARKO approach to EuroLeague data. It is a forward-looking rating: how many points per 100 possessions a player is expected to add over an average EuroLeague player in his next game. It weighs every EuroLeague game since 2007-08, with recent games counting most, and blends box-score production with lineup results. O-DPM and D-DPM split it into offense and defense.</p>
 <p>DPM is a current rating. In the DPM ranking, the season switch picks which season's players are listed and their games and minutes; the rating shown is always the latest one.</p>
 <h2>Freshness</h2>
 <p>Both rankings are rebuilt after every EuroLeague game day.</p>
@@ -40,6 +40,6 @@
 <p>Box scores and play-by-play from the EuroLeague, plus individual defensive tracking.</p>
 </article>
 </main>
-<footer><div><b>AP (Added Points)</b> is CourtLedger's Dean Oliver-inspired player metric. <b>DPM</b> is our EuroLeague version of <a href="https://www.darko.app/about">DARKO</a>, created by Kostya Medvedovsky (darko.app).</div>
+<footer><div><b>AP (Added Points)</b> is CourtLedger's Dean Oliver-inspired player metric. <b>DPM (DARKO)</b> is our EuroLeague version of <a href="https://www.darko.app/about">DARKO</a>, created by Kostya Medvedovsky (darko.app).</div>
 <div>Box scores and play-by-play: EuroLeague. Data built <span id="built"></span>. <a href="method.html">Method &amp; credits</a></div></footer>
 <script src="data/rank.js"></script><script src="data/index.js"></script><script src="rank.js"></script></body></html>
