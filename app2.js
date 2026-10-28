@@ -48,12 +48,12 @@ if(P==='player'){
   $('#dash').innerHTML=`<div class="card"><h1 style="margin:0">${p.name} <small style="color:var(--mut)">#${p.dorsal||''} · ${p.team} · ${(D.rows.find(r=>r.pid===p.pid)||{}).pos||''}${dk?' · age '+(+dk.age).toFixed(1):''}</small></h1>
    <div style="margin-top:12px">${[['AP/100',f(p.np100),cl(p.np100)],['AP total',f(p.np),cl(p.np)],['DPM',p.dpm==null?'—':f(p.dpm),cl(p.dpm)],['On-Off',p.onoff==null?'—':f(p.onoff),cl(p.onoff)],['PTS',p.ppg],['REB',p.rpg],['AST',p.apg],['TS%',p.ts],['MPG',p.mpg],['G',p.g]].map(([l,v,c])=>`<div class="kpi"><b class="${c||''}">${v}</b><span>${l}</span></div>`).join('')}</div>
    ${pv?`<div class="note">${pv} of ${rows.length} games with ${PROV}.</div>`:''}</div>
-   <div class="card"><h3 style="margin-top:0">Added Points by game</h3><div id="ch"></div></div>
+   <div class="card"><h3 style="margin-top:0">AP (Added Points) by game</h3><div id="ch"></div></div>
    <div class="grid"><div class="card"><h3 style="margin-top:0">Scoring &amp; playmaking <small style="color:var(--mut)">percentile (60+ min)</small></h3>${pbars(p,['ppg','p100','ts','efg','fg3','ft','usg','astp','a100','tovp'])}</div>
    <div class="card"><h3 style="margin-top:0">Rebounding &amp; defense</h3>${pbars(p,['rebp','orbp','drbp','s100','b100'])}<h3>Impact</h3>${pbars(p,['np100','onp100','dnp100','dpm','odpm','ddpm'])}</div>
    <div class="card"><h3 style="margin-top:0">On / Off</h3>${oo?`<table class="tbl"><tr><th class="l"></th><th>ORtg</th><th>DRtg</th><th>Net</th><th>Poss</th></tr>${[['On court',oo.on],['Off court',oo.off]].map(([l,v])=>`<tr><td class="l">${l}</td><td>${v.ortg}</td><td>${v.drtg}</td><td class="${cl(v.net)}">${f(v.net)}</td><td>${v.poss.toFixed(0)}</td></tr>`).join('')}<tr><td class="l"><b>Difference</b></td><td></td><td></td><td class="${cl(oo.diff)}"><b>${f(oo.diff)}</b></td><td></td></tr></table><p style="font-size:12px"><a href="lineups.html?c=${key}&m=wowy&p=${p.pid}">With/without teammates →</a></p>`:'No stint data.'}
    ${dk?`<h3>DPM detail</h3><div class="pbar"><span>Box prior</span><span></span><b>${f(+dk.box)}</b><span></span></div><div class="pbar"><span>RAPM</span><span></span><b>${f(+dk.rapm)}</b><span></span></div><div class="pbar"><span>Career poss</span><span></span><b>${(+dk.cp).toFixed(0)}</b><span></span></div>`:''}</div></div>`;
-  lineChart($('#ch'),[{name:'AP',c:'#ff7a1a',pts:rows.map(r=>({x:G[r.gc].round,y:r.np,prov:r.prov,t:`R${G[r.gc].round} vs ${r.opp}: ${f(r.np)} (${r.min.toFixed(0)} min)`}))}],'Added Points')}
+  lineChart($('#ch'),[{name:'AP',c:'#ff7a1a',pts:rows.map(r=>({x:G[r.gc].round,y:r.np,prov:r.prov,t:`R${G[r.gc].round} vs ${r.opp}: ${f(r.np)} (${r.min.toFixed(0)} min)`}))}],'AP (Added Points)')}
  $('#player').onchange=draw;draw()}
 if(P==='lineups'){
  const sp=new URLSearchParams(location.search),teams=[...new Set(A.players.map(p=>p.team))].sort();let mode=sp.get('m')||'onoff',sort={k:'net',d:-1};
@@ -83,8 +83,8 @@ if(P==='pvp'){
   $('#out').innerHTML=`<div class="grid"><div class="card" style="border-top:3px solid ${CA}"><h2 style="margin:0">${a.name}</h2><span style="color:var(--mut)">${a.team} · ${a.g} G · ${a.min.toFixed(0)} min</span>${pbars(a,['np100','dpm','ts','usg','astp','rebp'],CA)}</div>
   <div class="card" style="border-top:3px solid ${CB}"><h2 style="margin:0">${b.name}</h2><span style="color:var(--mut)">${b.team} · ${b.g} G · ${b.min.toFixed(0)} min</span>${pbars(b,['np100','dpm','ts','usg','astp','rebp'],CB)}</div></div>
   <div class="card"><table class="tbl" style="max-width:640px;margin:auto"><tr><th>${short(a.name)}</th><th style="text-align:center">stat (value · pct)</th><th class="l">${short(b.name)}</th></tr>${keys.map(row).join('')}</table></div>
-  <div class="card"><h3 style="margin-top:0">Added Points by game</h3><div id="ch"></div></div>`;
-  const s=(rs,n,c)=>({name:n,c,pts:rs.map(r=>({x:G[r.gc].round,y:r.np,prov:r.prov,t:`${n} R${G[r.gc].round}: ${f(r.np)}`}))});lineChart($('#ch'),[s(ra,short(a.name),CA),s(rb,short(b.name),CB)],'Added Points')}
+  <div class="card"><h3 style="margin-top:0">AP (Added Points) by game</h3><div id="ch"></div></div>`;
+  const s=(rs,n,c)=>({name:n,c,pts:rs.map(r=>({x:G[r.gc].round,y:r.np,prov:r.prov,t:`${n} R${G[r.gc].round}: ${f(r.np)}`}))});lineChart($('#ch'),[s(ra,short(a.name),CA),s(rb,short(b.name),CB)],'AP (Added Points)')}
  ['#pa','#pb'].forEach(s=>$(s).onchange=draw);draw()}
 if(P==='trends'){
  fill('#team',[...new Set(A.players.map(p=>p.team))].sort());const rounds=[...new Set(D.games.map(g=>g.round))].sort((a,b)=>a-b);let sort={k:'delta',d:-1};
@@ -105,6 +105,6 @@ if(P==='teams'){
   $('#lb').querySelectorAll('[data-t]').forEach(a=>a.onclick=e=>{e.preventDefault();det(a.dataset.t)})}
  function det(tc){const t=T.find(x=>x.team===tc),ps=A.players.filter(p=>p.team===tc).sort((a,b)=>b.np-a.np);
   $('#det').innerHTML=`<div class="grid"><div class="card"><h3 style="margin-top:0">${tc} games</h3><table class="tbl">${t.games.map(g=>`<tr><td class="l">R${G[g.gc].round}</td><td class="l"><a href="games.html?c=${key}&g=${g.gc}">vs ${g.opp}</a></td><td class="${cl(g.pts-g.opp_pts)}">${g.pts}–${g.opp_pts}</td><td>${g.poss} poss</td><td>${G[g.gc].prov?PROV:''}</td></tr>`).join('')}</table></div>
-  <div class="card"><h3 style="margin-top:0">${tc} Added Points (total)</h3><table class="tbl">${ps.map(p=>`<tr><td class="l"><a href="player.html?c=${key}&p=${p.pid}">${p.name}</a></td><td>${p.min.toFixed(0)} min</td><td class="${cl(p.np)}"><b>${f(p.np)}</b></td><td class="${cl(p.np100)}">${f(p.np100)}/100</td><td class="${cl(p.onoff)}">${p.onoff==null?'':'on-off '+f(p.onoff)}</td></tr>`).join('')}</table></div></div>`}
+  <div class="card"><h3 style="margin-top:0">${tc} AP (Added Points), total</h3><table class="tbl">${ps.map(p=>`<tr><td class="l"><a href="player.html?c=${key}&p=${p.pid}">${p.name}</a></td><td>${p.min.toFixed(0)} min</td><td class="${cl(p.np)}"><b>${f(p.np)}</b></td><td class="${cl(p.np100)}">${f(p.np100)}/100</td><td class="${cl(p.onoff)}">${p.onoff==null?'':'on-off '+f(p.onoff)}</td></tr>`).join('')}</table></div></div>`}
  draw();det(T.slice().sort((a,b)=>b.net-a.net)[0].team)}
 if(['stats','player','trends','teams'].includes(P))document.querySelector('main').insertAdjacentHTML('afterbegin',provNote);

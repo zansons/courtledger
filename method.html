@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Method · CourtLedger</title>
-<meta name="description" content="CourtLedger: EuroLeague player rankings by Added Points (AP) and DPM.">
+<meta name="description" content="CourtLedger: EuroLeague player rankings by AP (Added Points) and DPM.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -9,7 +9,7 @@
 <header class="top"><div class="topin">
 <a class="brand" href="index.html"><span class="mark">±</span><span>Court<b>Ledger</b></span></a>
 <nav class="main">
- <a href="index.html" data-p="index" class="pri"><i>01</i>AP<span class="long"> Rankings</span></a>
+ <a href="index.html" data-p="index" class="pri"><i>01</i>AP<span class="long"> (Added Points) Rankings</span></a>
  <a href="dpm.html" data-p="dpm" class="pri"><i>02</i>DPM<span class="long"> Rankings</span></a>
  <details class="more"><summary>More</summary><div class="menu">
   <div class="grp"><b>Players</b><a href="player.html" data-p="player">Player dashboard</a><a href="stats.html" data-p="stats">Stats &amp; scatter plots</a><a href="trends.html" data-p="trends">Trends</a><a href="pvp.html" data-p="pvp">Head-to-head</a></div>
@@ -20,9 +20,9 @@
 <label class="comp">Season <select id="comp"></select></label>
 </div></header>
 <main><article class="prose"><div class="kicker">Method &amp; credits</div><h1>About our numbers</h1>
-<p>CourtLedger is built around two player rankings: <a href="index.html">Added Points (AP)</a> first and <a href="dpm.html">DPM</a> second. Everything else on the site (player dashboards, stats and scatter plots, trends, head-to-head, teams, game logs, lineups) is under <b>More</b> in the menu.</p>
-<h2>Added Points (AP)</h2>
-<p>Added Points (AP) is our Dean Oliver-inspired measure of how many points a player added to, or cost, his team's final margin in a single game. It is not plus-minus or net rating: it credits each player for what he actually produced, not just for being on the floor.</p>
+<p>CourtLedger is built around two player rankings: <a href="index.html">AP (Added Points)</a> first and <a href="dpm.html">DPM</a> second. Everything else on the site (player dashboards, stats and scatter plots, trends, head-to-head, teams, game logs, lineups) is under <b>More</b> in the menu.</p>
+<h2>AP (Added Points)</h2>
+<p>AP (Added Points) is our Dean Oliver-inspired measure of how many points a player added to, or cost, his team's final margin in a single game. It is not plus-minus or net rating: it credits each player for what he actually produced, not just for being on the floor.</p>
 <ul>
 <li><b>O-AP (offense)</b> builds on Dean Oliver's individual offensive work: how much a player creates, how efficiently, and how often he uses possessions.</li>
 <li><b>D-AP (defense)</b> combines team defense with tracked individual defense, meaning the points a player actually allowed on the possessions he defended.</li>
@@ -40,6 +40,6 @@
 <p>Box scores and play-by-play from the EuroLeague, plus individual defensive tracking.</p>
 </article>
 </main>
-<footer><div><b>Added Points (AP)</b> is CourtLedger's Dean Oliver-inspired player metric. <b>DPM</b> is our EuroLeague version of <a href="https://www.darko.app/about">DARKO</a>, created by Kostya Medvedovsky (darko.app).</div>
+<footer><div><b>AP (Added Points)</b> is CourtLedger's Dean Oliver-inspired player metric. <b>DPM</b> is our EuroLeague version of <a href="https://www.darko.app/about">DARKO</a>, created by Kostya Medvedovsky (darko.app).</div>
 <div>Box scores and play-by-play: EuroLeague. Data built <span id="built"></span>. <a href="method.html">Method &amp; credits</a></div></footer>
 <script src="data/rank.js"></script><script src="data/index.js"></script><script src="rank.js"></script></body></html>
