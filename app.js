@@ -42,7 +42,7 @@ if(P==='games'){
    {h:'Defense',k:'prov',l:1,f:r=>r.prov?PROV:'<span class="tag ok">Full</span>'}];
   if(gc){const g=G[gc];d=D.rows.filter(r=>r.gc===gc);
    const sums=[g.home,g.away].map(t=>`${t}: Σ AP ${f(d.filter(r=>r.team===t).reduce((a,r)=>a+r.np,0),2)}`).join(' · ');
-   $('#gamehead').innerHTML=`<h2>Round ${g.round} · ${g.date} · ${g.home} ${g.hs}–${g.as_} ${g.away} ${g.prov?PROV:'<span class="tag ok">Full defense</span>'}</h2><p>${sums} (equals margin)</p>`+(g.prov?`<div class="note">Provisional defense: missing individual defense for ${g.missing.join(', ')}. Defense split by minutes only.</div>`:'');
+   $('#gamehead').innerHTML=`<h2>Round ${g.round} · ${g.date} · ${g.home} ${g.hs}–${g.as_} ${g.away} ${g.prov?PROV:'<span class="tag ok">Full defense</span>'}</h2><p>${sums} (final margin, adjusted for the possession difference)</p>`+(g.prov?`<div class="note">Provisional defense: missing individual defense for ${g.missing.join(', ')}. Defense split by minutes only.</div>`:'');
    cols=[{h:'Player',k:'name',l:1,f:r=>`<a href="?c=${key}&p=${r.pid}">${r.name}</a>`},{h:'Team',k:'team',l:1},...base];if(sort.k==='gc')sort={k:'np',d:-1}}
   else if(pid){d=D.rows.filter(r=>r.pid===pid);$('#gamehead').innerHTML=`<h2>${ps[pid]}</h2>`;
    cols=[{h:'Rd',k:'gc',f:r=>G[r.gc].round},{h:'Date',k:'gc',l:1,f:r=>G[r.gc].date},{h:'Opp',k:'opp',l:1,f:r=>`<a href="?c=${key}&g=${r.gc}">${r.team===G[r.gc].home?'vs':'@'} ${r.opp}</a>`},...base]}

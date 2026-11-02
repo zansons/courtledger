@@ -65,7 +65,7 @@ function mkBoard(kind){
     {h:'O-AP'+sfx,k:'O',t:'Offensive Added Points',f:r=>sg(r.O,dec),cls:r=>cl(r.O)},{h:'D-AP'+sfx,k:'Df',t:'Defensive Added Points',f:r=>sg(r.Df,dec),cls:r=>cl(r.Df)},
     {h:'AP'+sfx,k:'N',c:'key',t:'Added Points',f:r=>`<b>${sg(r.N,dec)}</b>${bar(r.N,mx)}`,cls:r=>cl(r.N)}],d,s,ns=>{st.sort={k:{N:'np',O:'off',Df:'dfn'}[ns.k]||ns.k,d:ns.d};draw()});
    const a=R.seasons[S].ap;$('#meta').innerHTML=`<b>${d.length}</b> players · ${VIEWS[st.view][0].toLowerCase()} · ${a.n} games${a.prov?` · ${a.prov} with provisional defense`:''}`;
-   $('#fine').innerHTML='Per 100 = per 100 team possessions while the player was on court. Per 40 = per 40 minutes played. In every game, the AP of all players on a team adds up to that team\'s final margin.';
+   $('#fine').innerHTML='Per 100 = per 100 team possessions while the player was on court. Per 40 = per 40 minutes played. AP compares each player with an average player. In every game, a team\'s AP adds up to its final margin, adjusted for any difference in the number of possessions the two teams had.';
   }else{
    let d=R.seasons[S].dpm.rows.filter(r=>flt(r)&&r.cp>=st.minCp).map(r=>({...r,mpg:r.g?r.min/r.g:0}));srt(d,st.sort);const mx=Math.max(...d.map(r=>Math.abs(r.dpm)),0.01);
    table($('#lb'),[{h:'#',k:'_',c:'rkn',f:(r,i)=>i+1},{h:'Player',k:'name',l:1,c:'pl',f:who},{h:'Team',k:'team',l:1},{h:'Pos',k:'pos',l:1,c:'hm',f:r=>r.pos?r.pos[0]:''},{h:'Age',k:'age',c:'hm',f:r=>r.age?r.age.toFixed(1):'—'},
