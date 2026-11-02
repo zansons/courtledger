@@ -25,7 +25,7 @@
 <p>AP (Added Points) is our Dean Oliver-based measure of how many points a player added to, or cost, his team in a single game, compared with an average player. It is not plus-minus or net rating: it credits each player for what he actually did on each play, not just for being on the floor.</p>
 <ul>
 <li><b>Built from play-by-play.</b> Following Dean Oliver's Net Points approach (<i>Basketball Beyond Paper</i>), every shot, turnover, rebound and free throw is valued, and the credit or blame for it is divided among the ten players on the floor at that moment.</li>
-<li><b>O-AP (offense)</b> counts the points and possessions a player produced from his part in each play (shooting, passing, offensive rebounding) and compares that with what an average player would produce with the same possessions.</li>
+<li><b>O-AP (offense)</b> shares the credit for every made shot, and the blame for every miss or turnover, among all five players on offense, the way Dean Oliver divides it: the harder a player's part of the play, the more credit he gets when it works, and the easier it was, the more blame he takes when it fails. Shot difficulty comes from where the shot was taken, and teammates who space the floor get a share too. O-AP then compares what each player produced with what an average player would produce with the same possessions.</li>
 <li><b>D-AP (defense)</b> shares every defensive play among the five defenders on the floor, then refines it with tracked individual defense, meaning the points a player actually allowed on the possessions he defended. The more possessions he was tracked on, the more that tracking counts.</li>
 <li><b>It always adds up.</b> In every game, a team's Added Points add up to its final margin, adjusted for any difference in the number of possessions the two teams had.</li>
 </ul>
@@ -38,10 +38,11 @@
 <table class="tbl" id="freshtbl"></table>
 <p class="fine">DPM ratings are current through the latest game in the DPM column. AP appears for a game once its defensive data is loaded, so it can trail DPM by a few games.</p>
 <h2>Changelog</h2>
+<p><b>2 Nov 2026 (update).</b> Offensive credit and blame now follow Dean Oliver's own rules for dividing a play among teammates: shot difficulty and every teammate on the floor count, not just the shooter and passer. Rebounds are shared the same way. Defense is unchanged. Every game still adds up exactly to the final margin. AP values from before this update are not comparable.</p>
 <p><b>2 Nov 2026.</b> AP is now calculated from play-by-play for 2025-26 and 2026-27, following Dean Oliver's Net Points method: credit and blame are divided on every play, then compared with an average player per possession. AP values from before this date are not comparable.</p>
 <p><b>30 Oct 2026.</b> AP was recalculated for 2025-26 and 2026-27 with a refined Dean Oliver-based method. Offense and defense now follow Oliver's box-score framework more closely, and tracked individual defense counts more for players tracked on more possessions. Every game still adds up exactly to the final margin. AP values from before this date are not comparable.</p>
 <h2>Data</h2>
-<p>Box scores and play-by-play from the EuroLeague, plus individual defensive tracking.</p>
+<p>Box scores, play-by-play and shot locations from the EuroLeague, plus individual defensive tracking.</p>
 </article>
 </main>
 <footer><div><b>AP (Added Points)</b> is CourtLedger's Dean Oliver-inspired player metric. <b>DPM (DARKO)</b> is our EuroLeague version of <a href="https://www.darko.app/about">DARKO</a>, created by Kostya Medvedovsky (darko.app).</div>
