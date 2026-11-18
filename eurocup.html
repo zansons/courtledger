@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EuroCup DPM (DARKO) · CourtLedger</title>
+<meta name="description" content="CourtLedger: EuroLeague player rankings by AP (Added Points) and DPM (DARKO).">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head>
+<body data-page="eurocup">
+<header class="top"><div class="topin">
+<a class="brand" href="index.html"><span class="mark">±</span><span>Court<b>Ledger</b></span></a>
+<nav class="main">
+ <a href="index.html" data-p="index" class="pri"><i>01</i>AP<span class="long"> (Added Points) Rankings</span></a>
+ <a href="dpm.html" data-p="dpm" class="pri"><i>02</i>DPM<span class="long"> (DARKO) Rankings</span></a>
+ <details class="more"><summary>More</summary><div class="menu">
+  <div class="grp"><b>Players</b><a href="player.html" data-p="player">Player dashboard</a><a href="stats.html" data-p="stats">Stats &amp; scatter plots</a><a href="trends.html" data-p="trends">Trends</a><a href="pvp.html" data-p="pvp">Head-to-head</a></div>
+  <div class="grp"><b>Teams &amp; games</b><a href="teams.html" data-p="teams">Teams</a><a href="games.html" data-p="games">Game logs</a><a href="lineups.html" data-p="lineups">Lineups &amp; WOWY</a></div>
+  <div class="grp"><b>Other competitions</b><a href="eurocup.html" data-p="eurocup">EuroCup DPM (DARKO)</a><a href="bcl.html" data-p="bcl">Champions League DPM (DARKO)</a></div>
+  <div class="grp"><b>About</b><a href="method.html" data-p="method">Method &amp; credits</a></div>
+ </div></details>
+</nav>
+<label class="comp">Season <select id="comp"></select></label>
+</div></header>
+<main><section class="hero rk-hero dpmh"><div class="kicker">Other competitions</div>
+<h1>EuroCup <em>DPM (DARKO)</em></h1>
+<p>DPM (DARKO) for the EuroCup is our version of <a href="https://www.darko.app/about">DARKO</a>, the Daily Plus-Minus model created by Kostya Medvedovsky, applied to EuroCup games the same way as our EuroLeague ratings. It is a forward-looking rating: how many points per 100 possessions a player is expected to add over an average EuroCup player. Box-score production and lineup results from every EuroCup game since 2010-11 feed into it, and recent games count most.</p>
+<p class="fine">Data: <span data-src></span>.</p>
+</section>
+<section class="board" id="board" data-board="lg" data-league="eurocup"></section>
+</main>
+<footer><div><b>AP (Added Points)</b> is CourtLedger's Dean Oliver-inspired player metric. <b>DPM (DARKO)</b> is our EuroLeague version of <a href="https://www.darko.app/about">DARKO</a>, created by Kostya Medvedovsky (darko.app).</div>
+<div>Box scores and play-by-play: EuroCup. Data built <span id="built"></span>. <a href="method.html">Method &amp; credits</a></div></footer>
+<script src="data/dpm_eurocup.js"></script><script src="leagues.js"></script></body></html>
